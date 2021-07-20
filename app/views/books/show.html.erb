@@ -1,3 +1,4 @@
+<p id="notice"><%= flash[:notice] %></p>
 <div class="container">
   <div class="row">
   <div class="col-md-8 offset-md-1">
@@ -7,6 +8,7 @@
     <h2>Book detail</h2>
       <table class="table">
         <tbody>
+          <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg",size: "60x60"%></td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
           <% if @book.user == current_user %>
