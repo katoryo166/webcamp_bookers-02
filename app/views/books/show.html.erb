@@ -1,20 +1,19 @@
-<div class="col-md-8 offset-md-1">
-  <h2>User info</h2>
-  <table class="table">
-      <tbody>
-        <td><%= @book.user.name %></td>
-        <td></td>
-      </tbody>
-  </table>
-  <h2>Book detail</h2>
-    <table class="table">
-      <tbody>
-        <td><%= @book.title %></td>
-        <td><%= @book.body %></td>
-        <% if @book.user == current_user %>
-          <td><%= link_to "edit", edit_book_path %></td>
-          <td><%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか?" %></td>
-        <% end %>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="row">
+  <div class="col-md-8 offset-md-1">
+    <%= render 'users/user', user: @user %>
+    <%= render 'books/book', book: @book_show %>
+  </div>
+    <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if @book.user == current_user %>
+            <td><%= link_to "edit", edit_book_path %></td>
+            <td><%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか?" %></td>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
 </div>
