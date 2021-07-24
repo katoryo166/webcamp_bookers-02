@@ -10,23 +10,21 @@
           <% end %>
         <% end %>
       </div>
-      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60"%>
       <%= form_with model:@user, local:true do |f| %>
         <div class="form-group">
           <div class="field_with_errors">
-            <label for="inputName" class="user-name">Name</label>
+            <label for="inputName" class="user-name">Name</label><br>
             <%= f.text_field :name, autofocus: true, id:"inputName"%>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputImage">Image</label>
+          <label for="inputImage">Image</label><br>
           <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
         </div>
         <div class="form-group">
-          <label for="Introduction">Introduction</label><br/>
+          <label for="Introduction">Introduction</label><br>
           <%= f.text_area :introduction, autofocus: true, id:"Introduction"%>
         </div>
-
         <%= f.submit "Update User",class:"btn btn-secondary" %>
       <% end %>
     </div>
